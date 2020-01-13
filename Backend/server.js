@@ -1,8 +1,28 @@
-var express = require('express');
-var app = express();
+const mysql = require('mysql');
+const express = require('express');
+const app = express();
 
-app.get('/', (req, res) => {
-   res.send('Hello World');
+let host;
+let user;
+let password;
+
+let con = mysql.createConnection({
+    host: host,
+    user: user,
+    password: password
+});
+
+
+app.post('CreateConnection/', (req, res) => {
+    host = req.body.host;
+    user = req.body.user;
+    password = req.body.password;
+    con.connect((err) => {
+        if (err) throw err;
+        console.log("Connected!");
+    });
+
+    res.send('Hello World');
 })
 
 var server = app.listen(42000, function () {
