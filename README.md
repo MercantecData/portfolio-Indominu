@@ -1,4 +1,5 @@
 portfolio-Indominu
+Mathias Harboe Faust
 
 Appen bliver lavet i React Native
 
