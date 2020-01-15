@@ -1,56 +1,56 @@
 const mysql = require('mysql');
-// const bodyParser = require('body-parser');
-// const express = require('express');
-// const app = express();
+const bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
 
-// // body limit is 10
-// app.use(bodyParser.json({ limit: '10kb' }));
+// body limit is 10
+app.use(bodyParser.json({ limit: '10kb' }));
 
-// let host;
-// let user;
-// let password;
+let host;
+let user;
+let password;
+let port;
 
 let con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: ""
+    host: host,
+    user: user,
+    password: password,
+    port: port
 });
 
-con.connect((err) => {
-    if (err) console.log(err);
-    console.log("works");
+app.post('/', (req, res) => {
+    host = req.body.host;
+    user = req.body.user;
+    password = req.body.password;
+    port = req.body.port;
+
+    con.connect((err) => {
+        if (err) {
+            console.log(err);
+            res.json({connected: false});
+        } else {
+            res.json({connected: true});
+        }
+    });
 });
 
-// app.post('/', (req, res) => {
-//     console.log(req.body);    
+app.post('GetAllDatabases/', (req, res) => {
+    con.query('', (err, result) => {
+        if (err) console.log(err);
+        res.send("Result: " + result);
+    });
+});
 
-//     host = req.body.host;
-//     user = req.body.user;
-//     password = req.body.password;
+app.post('GetAllDataInDatabase/', (req, res) => {
+    con.query('', (err, result) => {
+        if (err) console.log(err);
+        res.send("Result: " + result);
+    });
+});
 
-//     con.connect((err) => {
-//         if (err) console.log(err);
-//         res.json("Connected");
-//     });
-// });
-
-// app.post('GetAllDatabases/', (req, res) => {
-//     con.query('', (err, result) => {
-//         if (err) console.log(err);
-//         res.send("Result: " + result);
-//     });
-// });
-
-// app.post('GetAllDataInDatabase/', (req, res) => {
-//     con.query('', (err, result) => {
-//         if (err) console.log(err);
-//         res.send("Result: " + result);
-//     });
-// });
-
-// let server = app.listen(42000, () => {
-//    let host = server.address().address
-//    let port = server.address().port
+let server = app.listen(42000, () => {
+   let host = server.address().address
+   let port = server.address().port
    
-//    console.log("App listening at http://%s:%s", host, port)
-// });
+   console.log("App listening at http://%s:%s", host, port)
+});
