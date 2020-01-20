@@ -8,8 +8,9 @@ færdig
 start siden er en knap called "Connect" og 3 input bokse host, user, password
 hvis det lykkes at oprette fobindelse skifter den til en ny side
 
+færdig
 den nye side er en oversigt over all databaserne i en liste klikker du ind på en af databaserne skal du kunne se alle tabels, procederes og views der lavt i databasen i en liste
-klikker man vidre fks. på en tabel for man vist alt dataen i et grid og skuller kun lave ændringer til dataen
+klikker man vidre fks. på en tabel for man vist alt dataen
 
 i bunden på alle sider skal der være en navigations bar med 3 kanpper 
 

@@ -6,7 +6,7 @@ import Connect from './assets/createConnectionScreen/createConnection';
 import OverView from './assets/overViewScreen/overView';
 
 const StackNavigator = createStackNavigator({
-  CreateConnectionScreen: {screen: Connect},
+  //CreateConnectionScreen: {screen: Connect},
   OverViewScreen: {screen: OverView},
 });
 
