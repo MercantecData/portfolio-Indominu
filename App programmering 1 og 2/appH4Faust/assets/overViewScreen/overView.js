@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
 import Ov from './overViewStyleSheet';
+import NavBar from '../navigationBar/navBar';
 
 export default class OverView extends Component {
     constructor(){
@@ -23,7 +24,7 @@ export default class OverView extends Component {
     };
 
     async FetchData(url, method, data, callback) {
-        let result = await fetch(`http://172.16.240.122:42000/${url}`, {
+        let result = await fetch(`http://172.16.116.40:42000/${url}`, {
             method: method,
             headers: {
                 Accept: 'application/json',
@@ -105,6 +106,8 @@ export default class OverView extends Component {
                         </View>
                     </View>
                 </Modal>
+
+                <NavBar nav={this.props.navigation}/>
 
             </View>
         );
