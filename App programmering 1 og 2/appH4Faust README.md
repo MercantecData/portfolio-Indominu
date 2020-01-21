@@ -12,11 +12,12 @@ færdig
 den nye side er en oversigt over all databaserne i en liste klikker du ind på en af databaserne skal du kunne se alle tabels, procederes og views der lavt i databasen i en liste
 klikker man vidre fks. på en tabel for man vist alt dataen
 
-i bunden på alle sider skal der være en navigations bar med 3 kanpper 
-
+færdig
+i bunden på alle sider skal der være en navigations bar med 4 kanpper 
 en til oversigt siden med listerne af databaserne
 en til oprettelse af nye databaser 
 en til ændringer af bruger 
+en til at logge ud
 
 oprettelse af nye databaser siden
 input boks til databasens title
@@ -30,3 +31,11 @@ liste over alle bruger
 knap til at oprette nye bruger 
 modal med 2 input bokse en til brugernavn og kodeord 
 og en liste over alle databaser der er med checkbokse så man kan vælge hvilke man kan se når man logger ind
+
+okay så der er 3 steder hvor du skal ændre ip adresserne til din computers egen ip adresse 
+første er overView.js linje 27 
+næste er createConnection.js linje 16 
+næste navBar.js linje 33
+
+derefter skal du starte starte backend serveren 
+ved at gå til mappen Backend og skrive commandoen (node server) i terminalen

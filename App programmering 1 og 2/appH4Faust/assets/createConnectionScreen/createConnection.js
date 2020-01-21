@@ -1,20 +1,19 @@
-// this is what we import so the code works
 import React, { Component }  from 'react';
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
 import Ccs from './createConnectionStyleSheet';
 
 export default class CreateConnection extends Component {
-    constructor(){ // the constructor and super is needed, in order to use this.props and this.setstate later on.
+    constructor(){
         super();
-        this.state = ({ host: "", user: "", password: "", port: "" }); // This picces of code can be reached globaly in the code
+        this.state = ({ host: "", user: "", password: "", port: "" });
     };
 
     static navigationOptions = {
         headerShown: false
     };
 
-    async CreateConnection() {
-        const resJson = await fetch('http://172.16.240.132:42000/', {
+    async CreateConnection({navigate}) {
+        const resJson = await fetch('http://172.16.116.40:42000/CreateConnection', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -36,12 +35,8 @@ export default class CreateConnection extends Component {
         }
     };
 
-
-
     render() {
-        const {navigate} = this.props.navigation;
         return (
-         // the color of the background
             <View style={Ccs.background}>
 
                 <TextInput // inside here define we the area, where you can write your host.
@@ -78,7 +73,7 @@ export default class CreateConnection extends Component {
                     onChangeText={(portInput) => this.setState({ port: portInput })}
                 />
 
-                <TouchableOpacity style={[Ccs.universalStyles, Ccs.button]} onPress={ () => this.CreateConnection().done() /* connection to the backend*/ }>
+                <TouchableOpacity style={[Ccs.universalStyles, Ccs.button]} onPress={ () => this.CreateConnection(this.props.navigation).done() /* connection to the backend*/ }>
                     <Text style={Ccs.buttonText}>Connect</Text>
                 </TouchableOpacity>
             </View>
