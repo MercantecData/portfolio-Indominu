@@ -3,10 +3,13 @@ module.exports = (app) => {
   const mysql = require('mysql');
   let dbcon;
 
-  // let host = "127.0.0.1";
-  // let user = "root";
-  // let password = "";
-  // let port = "3306";
+  // dbcon = mysql.createConnection({
+  //   host: "127.0.0.1",
+  //   user: "root",
+  //   password: "",
+  //   port: "3306",
+  //   multipleStatements: true
+  // });
 
   // dbcon.connect((err) => {
   //   if (err) {

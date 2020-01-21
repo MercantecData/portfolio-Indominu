@@ -12,19 +12,19 @@ export default class NavBar extends Component {
         return (
             <View style={Nbs.navContainer}>
                 <TouchableOpacity
-                    // onPress={ () => navigate('JobFeedScreen')}
+                    onPress={ () => navigate('OverViewScreen')}
                     style={[Nbs.navBtns]}>
                     <Text style={[Nbs.navBtnsText]}>Overview</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    // onPress={ () => navigate('ProfileScreen')}
+                    onPress={ () => navigate('CreateNewContentScreen')}
                     style={[Nbs.navBtns]}>
                     <Text style={[Nbs.navBtnsText]}>New db</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    // onPress={ () => navigate('JobProfileScreen')}
+                    // onPress={ () => navigate('')}
                     style={[Nbs.navBtns]}>
                     <Text style={[Nbs.navBtnsText]}>Users</Text>
                 </TouchableOpacity>
