@@ -12,11 +12,12 @@ færdig
 den nye side er en oversigt over all databaserne i en liste klikker du ind på en af databaserne skal du kunne se alle tabels, procederes og views der lavt i databasen i en liste
 klikker man vidre fks. på en tabel for man vist alt dataen
 
-i bunden på alle sider skal der være en navigations bar med 3 kanpper 
-
+færdig
+i bunden på alle sider skal der være en navigations bar med 4 kanpper 
 en til oversigt siden med listerne af databaserne
 en til oprettelse af nye databaser 
 en til ændringer af bruger 
+en til at logge ud
 
 oprettelse af nye databaser siden
 input boks til databasens title

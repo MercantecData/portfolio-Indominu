@@ -1,44 +1,42 @@
 module.exports = (app) => {
 
   const mysql = require('mysql');
+  let dbcon;
 
-  let host = "127.0.0.1";
-  let user = "root";
-  let password = "";
-  let port = "3306";
+  // let host = "127.0.0.1";
+  // let user = "root";
+  // let password = "";
+  // let port = "3306";
 
-  let dbcon = mysql.createConnection({
-    host: host,
-    user: user,
-    password: password,
-    port: port,
-    multipleStatements: true
-  });
+  // dbcon.connect((err) => {
+  //   if (err) {
+  //       console.log(err);
+  //       //res.json({connected: false});
+  //   } else {
+  //     console.log("con");
+  //       //res.json({connected: true});
+  //   }
+  // });
 
-  dbcon.connect((err) => {
-    if (err) {
-        console.log(err);
-        //res.json({connected: false});
-    } else {
-      console.log("con");
-        //res.json({connected: true});
-    }
-  });
-
-  app.post('/', (req, res) => {
-    host = req.body.host;
-    user = req.body.user;
-    password = req.body.password;
-    port = req.body.port;
+  app.post('/CreateConnection', (req, res) => {
+    dbcon = mysql.createConnection({
+      host: req.body.host,
+      user: req.body.user,
+      password: req.body.password,
+      port: req.body.port,
+      multipleStatements: true
+    });
 
     dbcon.connect((err) => {
-        if (err) {
-            console.log(err);
-            res.json({connected: false});
-        } else {
-            res.json({connected: true});
-        }
+      if (err) {
+        console.log(err);
+        res.json({connected: false});
+      } else {
+        res.json({connected: true});
+      }
     });
+
+ 
   });
 
   app.post('/GetAllOverView', (req, res) => {
@@ -68,6 +66,11 @@ module.exports = (app) => {
         res.json(result);
       }
     });
+  });
+
+  app.get('/Disconnect', (req, res) => {
+    console.log("dis");
+    //dbcon.end();
   });
 
 }
