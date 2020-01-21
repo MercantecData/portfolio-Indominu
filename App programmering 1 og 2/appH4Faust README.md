@@ -31,3 +31,8 @@ liste over alle bruger
 knap til at oprette nye bruger 
 modal med 2 input bokse en til brugernavn og kodeord 
 og en liste over alle databaser der er med checkbokse så man kan vælge hvilke man kan se når man logger ind
+
+okay så der er 3 steder hvor du skal ændre ip adresserne til din computers egen ip adresse
+første er overView.js linje 27
+næste er createConnection.js linje 16
+næste navBar.js linje 33
