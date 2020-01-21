@@ -36,3 +36,6 @@ okay så der er 3 steder hvor du skal ændre ip adresserne til din computers ege
 første er overView.js linje 27 
 næste er createConnection.js linje 16 
 næste navBar.js linje 33
+
+derefter skal du starte starte backend serveren 
+ved at gå til mappen Backend og skrive commandoen (node server) i terminalen
