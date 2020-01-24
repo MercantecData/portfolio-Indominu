@@ -20,7 +20,7 @@ export default class OverView extends Component {
             } else {
                 alert("Sorry an error occurred");
             }
-        }).done();
+        });
     };
 
     async FetchData(url, method, data, callback) {
@@ -41,10 +41,11 @@ export default class OverView extends Component {
 
                 {this.state.overViewListData.map((item, index) => {
 
-                    if(item["TABLE_SCHEMA"] !== this.state.preDatabase) {
+                    if(item["SCHEMA_NAME"] !== this.state.preDatabase) {
                         let nr = this.state.nr;
+                        this.state.nr+=1;
 
-                        this.state.preDatabase = item["TABLE_SCHEMA"];
+                        this.state.preDatabase = item["SCHEMA_NAME"];
 
                         if(!this.state.dbLoadDone) {
                             this.state.hideShowChildList.push(false);
@@ -58,15 +59,15 @@ export default class OverView extends Component {
                                     this.setState({hideShowChildList: newArr, nr: 0});
                                 }}>
 
-                                    <Text>{item["TABLE_SCHEMA"]}</Text>
+                                    <Text>{item["SCHEMA_NAME"]}</Text>
                                 </TouchableOpacity>
 
                                 {this.state.hideShowChildList[nr] && this.state.overViewListData.map((element) => {
-                                    if(this.state.preDatabase == element["TABLE_SCHEMA"]) {
+                                    if(this.state.preDatabase == element["SCHEMA_NAME"]) {
                                         return(                                      
                                             <TouchableOpacity onPress={() => {
                                                 this.FetchData('GetData', 'POST', JSON.stringify({
-                                                    db: element["TABLE_SCHEMA"],
+                                                    db: element["SCHEMA_NAME"],
                                                     table: element["TABLE_NAME"],
                                                     type: element["TABLE_TYPE"]
                                                 }), (resJson) => {
@@ -82,7 +83,6 @@ export default class OverView extends Component {
                             </View>
                         );
                     }
-                    this.state.nr+=1;
 
                     if(index+1 == this.state.overViewListData.length) {
                         this.state.dbLoadDone = true

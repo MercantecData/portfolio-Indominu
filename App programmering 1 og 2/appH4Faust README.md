@@ -19,6 +19,7 @@ en til oprettelse af nye databaser
 en til ændringer af bruger 
 en til at logge ud
 
+færdig
 oprettelse af nye databaser siden
 input boks til databasens title
 knap til at tilføje tabels 

@@ -24,7 +24,7 @@ export default class NavBar extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    // onPress={ () => navigate('')}
+                    onPress={ () => navigate('UsersScreen')}
                     style={[Nbs.navBtns]}>
                     <Text style={[Nbs.navBtnsText]}>Users</Text>
                 </TouchableOpacity>
